@@ -1,0 +1,71 @@
+.main
+	padding: 2em
+	@media screen and (max-width: 700px)
+		padding: 1em
+		// text-align: center
+
+.channel
+	margin: 1em
+	border: 0.1em solid #dedede
+	width: 20em
+	max-width: 100%
+	transition: box-shadow 0.2s ease
+	&:hover
+		box-shadow: 0 0.45em 2em rgba(0,0,0,.2)
+	@media screen and (max-width: 500px)
+		margin: 1em 0
+		width: 100%
+
+	.channel-title
+		margin: 0
+		position: relative
+		padding: 0 3.2em 0.3em 0
+		border-bottom: 0.1em solid #dfdfdf
+		&::after
+			display: block
+			position: absolute
+			right: 0
+			top: 0
+			vertical-align: middle
+			height: 80%
+			width: 3em
+			// margin-right: 0.4em
+			content: ' '
+			background-repeat: no-repeat
+			background-size: contain
+			background-position: center right
+	.channel-program
+		// margin-bottom: 0
+		padding: 0
+		li
+			list-style: none
+			padding: 0.3em 0
+			.time, .title
+				display: inline-block
+				box-sizing: border-box
+				// outline: 1px solid red
+				// vertical-align: top
+			.time
+				font-weight: bolder
+				width: 3em
+				vertical-align: top
+				padding: 0 0.8em 0 0
+			.title
+				width: calc(100% - 3.8em)
+
+	&.tv1 .channel-title::after
+		background-image: url('../img/1tv.svg')
+	&.russia-1 .channel-title::after
+		background-image: url('../img/russia-1.svg')
+	&.match-tv .channel-title::after
+		background-image: url('../img/match-tv.png')
+	&.sts .channel-title::after
+		background-image: url('../img/sts.svg')
+	&.tnt .channel-title::after
+		background-image: url('../img/tnt.png')
+	
+	&.channel--little
+		display: inline-block
+		vertical-align: top
+		padding: 1em
+		// max-width: 10em

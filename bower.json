@@ -1,0 +1,22 @@
+{
+  "name": "ya-task-1",
+  "description": "Тестовое задание для ШРИ Яндекса",
+  "main": "index.js",
+  "authors": [
+    "Nikita Chesnokov"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/4esnog/ya-task-1",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.0.0",
+    "jquery": "^2.2.2"
+  }
+}

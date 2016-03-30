@@ -1,0 +1,19 @@
+{
+  "name": "ya-task-1",
+  "version": "1.0.0",
+  "description": "Тестовое задание для ШРИ Яндекса",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4esnog/ya-task-1.git"
+  },
+  "author": "Nikita Chesnokov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4esnog/ya-task-1/issues"
+  },
+  "homepage": "https://github.com/4esnog/ya-task-1#readme"
+}
