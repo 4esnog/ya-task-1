@@ -18,7 +18,7 @@
 		color: $orange
 		display: inline-block
 
-	nav
+	.date-nav
 		display: inline-block
 		vertical-align: top
 		a
@@ -32,6 +32,38 @@
 				border-color: $light-blue
 		@media screen and (max-width: 700px)
 			float: right
+
+			&.opened
+				position: fixed
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				z-index: 999
+				background: rgba(255,255,255,.85)
+				a
+					line-height: 3em
+					border: none
+					border-bottom: 0.1em solid
+					padding: 0 2em
+					&.active
+						background: lighten($black, 25%)
+						color: #eee
+						&::after, &::before
+							display: block
+							width: 1.4em
+							right: 0.8em
+							border: none
+							border-top: 0.2em solid #eee
+
+						&::after
+							transform: rotate(45deg)
+						&::before
+							transform: rotate(-45deg)
+							right: 0.55em
+					&:nth-child(n+2)
+						display: block
+						border-color: transparentize($black, 0.8)
 			
 			// pointer-events: none
 			a
@@ -41,7 +73,7 @@
 				&.active
 					padding-right: 1.6em
 					// pointer-events: none
-					&::after
+					&::after, &::before
 						display: block
 						position: absolute
 						top: calc(50% - 0.2em)
@@ -52,6 +84,8 @@
 						border-top: 0.4em solid $light-blue
 						border-left: 0.4em solid transparent
 						border-right: 0.4em solid transparent
+					&::before
+						display: none
 				&:nth-child(n+2)
 					// visibility: hidden
 					// opacity: 0

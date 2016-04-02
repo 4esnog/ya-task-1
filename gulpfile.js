@@ -107,7 +107,7 @@ gulp.task('serve', ()=>{
 	browsersync.init({
 		server: './',
 		// proxy: 'prod.dev/specstroy/public/',
-		tunnel: true
+		// tunnel: true
 	})
 
 	browsersync.watch('public/**/*').on('change', browsersync.reload)

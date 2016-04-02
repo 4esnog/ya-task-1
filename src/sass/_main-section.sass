@@ -6,12 +6,10 @@
 
 .channel
 	margin: 1em
-	border: 0.1em solid #dedede
-	width: 20em
 	max-width: 100%
-	transition: box-shadow 0.2s ease
-	&:hover
-		box-shadow: 0 0.45em 2em rgba(0,0,0,.2)
+	will-change: width, padding, margin, display, border, box-shadow
+	transition: all 0.2s ease
+
 	@media screen and (max-width: 500px)
 		margin: 1em 0
 		width: 100%
@@ -63,9 +61,28 @@
 		background-image: url('../img/sts.svg')
 	&.tnt .channel-title::after
 		background-image: url('../img/tnt.png')
+
+	.load-more-btn
+		display: none
+		margin: 0
+		padding: 1em
+		text-align: center
+		color: $light-blue
+
+		&:hover
+			color: $orange
+			cursor: pointer
+
 	
 	&.channel--little
 		display: inline-block
 		vertical-align: top
-		padding: 1em
-		// max-width: 10em
+		padding: 1em 1em 0.7em
+		border: 0.1em solid #dedede
+		width: 20em
+		
+		.load-more-btn
+			display: block
+
+		&:hover
+			box-shadow: 0 0.45em 2em rgba(0,0,0,.2)

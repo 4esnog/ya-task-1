@@ -4,12 +4,28 @@
 		"selected_items":
 		[
 			[
-				"mx-",
-				"max-width: "
+				"bor",
+				"border-left: "
+			],
+			[
+				"back",
+				"background-image: "
+			],
+			[
+				"text",
+				"text-align: "
+			],
+			[
+				"tran",
+				"transition: "
 			],
 			[
 				"margin",
-				"margin-top: "
+				"margin-right: "
+			],
+			[
+				"mx-",
+				"max-width: "
 			],
 			[
 				"block",
@@ -22,10 +38,6 @@
 			[
 				"border",
 				"border-radius: "
-			],
-			[
-				"text",
-				"text-decoration: "
 			],
 			[
 				"a",
@@ -108,20 +120,12 @@
 				"background-size"
 			],
 			[
-				"tran",
-				"transitions"
-			],
-			[
 				"align",
 				"align-items"
 			],
 			[
 				"transpa",
 				"transparentize"
-			],
-			[
-				"back",
-				"background"
 			],
 			[
 				"backg",
@@ -275,18 +279,24 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 3483,
+				"buffer_size": 3703,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "var gulp = require('gulp'),\n	concat = require('gulp-concat'),\n	prefix = require('gulp-autoprefixer'),\n	sass = require('gulp-sass'),\n	browsersync = require('browser-sync').create(),\n	rigger = require('gulp-rigger'),\n	useref = require('gulp-useref'),\n	uglify = require('gulp-uglify'),\n	minifyCss = require('gulp-minify-css'),\n	gulpif = require('gulp-if'),\n	imagemin = require('gulp-imagemin'),\n	newer = require('gulp-newer'),\n	maps = require('gulp-sourcemaps'),\n	del = require('del'),\n	debug = require('gulp-debug'),\n	flatten = require('gulp-flatten'),\n	htmlmin = require('gulp-htmlmin');\n\n\ngulp.task('fonts', ()=>{\n	return gulp.src('bower_components/**/font*/*.*(otf|ttf|woff|eot|svg|woff2)')\n	.pipe(flatten())\n	.pipe(newer('public/fonts'))\n	.pipe(debug())\n	.pipe(gulp.dest('public/fonts'))\n})\n\ngulp.task('libs', ()=>{\n	return gulp.src('bower_components/**/*')\n	.pipe(newer('src/libs/'))\n	.pipe(gulp.dest('src/libs/'))\n	// .pipe(gulp.dest('public/libs/'))\n})\n\ngulp.task('images', ()=>{\n	return gulp.src('src/img/**/*')\n		.pipe(newer('public/img/'))\n		.pipe(imagemin({\n			optimizationLevel: 5,\n			progressive: true\n		}))\n		.pipe(gulp.dest('public/img/'))\n})\n\ngulp.task('html', ()=>{\n	return gulp.src('src/*.*(html|php)')\n		// .pipe(newer('./'))\n		// .pipe(gulpif('*.*(json|xml)', gulp.dest('public/')))\n		.pipe(maps.init({loadMaps: true}))\n		.pipe(rigger())\n		.pipe(useref())\n		.pipe(gulpif('*.js', uglify()))\n		.pipe(gulpif('*.css', minifyCss()))\n		// .pipe(htmlmin({collapseWhitespace: true}))\n		.pipe(maps.write())\n		.pipe(gulp.dest('./'))\n		.pipe(gulp.dest('./public'))\n})\n\ngulp.task('sass', ()=>{\n	return gulp.src('src/sass/main.sass')\n		// .pipe(newer('public/css/main.css'))\n		// .pipe(debug())\n		.pipe(maps.init())\n		.pipe(sass().on('error', sass.logError))\n		.pipe(prefix({\n			browsers: ['last 5 versions', '> 1%']\n		}))\n		.pipe(minifyCss())\n		.pipe(maps.write())\n		.pipe(gulp.dest('public/css/'))\n		// .pipe(gulp.dest('src/css/'))\n})\n\ngulp.task('js', ()=>{\n	return gulp.src('src/js/*.js')\n	.pipe(newer('public/js/'))\n	.pipe(maps.init())\n	.pipe(uglify())\n	.pipe(concat('script.js'))\n	.pipe(maps.write())\n	.pipe(gulp.dest('public/js'))\n})\n\ngulp.task('clean', ()=>{\n	return del('public/*')\n})\n\n\n// ***** Tasks for Livereload *****\n\n// gulp.task('html-reload', gulp.series('html'))\n// gulp.task('css-reload', gulp.series('sass'))\n// gulp.task('js-reload', gulp.series('js'))\n\n// ********************************\n\n\ngulp.task('watch', ()=>{\n	gulp.watch('bower_components/**/*', gulp.series('libs'))\n	gulp.watch('src/**/*.htm*', gulp.series('html'))\n	gulp.watch('src/sass/*.sass', gulp.series('sass'))\n	gulp.watch('src/**/*.js', gulp.series('js'))\n})\n\ngulp.task('serve', ()=>{\n	browsersync.init({\n		server: './',\n		// proxy: 'prod.dev/specstroy/public/',\n		// tunnel: true\n	})\n\n	browsersync.watch('public/**/*').on('change', browsersync.reload)\n})\n\ngulp.task('default', gulp.series('libs', 'fonts', 'js', 'sass', 'images' 'html', gulp.parallel('watch', 'serve')))\n\ngulp.task('compile', gulp.series('clean', 'images', 'libs', 'fonts', 'js', 'sass', 'html'))",
-			"file": "gulpfile.js",
-			"file_size": 3048,
-			"file_write_time": 131038370865970890,
+			"file": "src/js/main.js",
 			"settings":
 			{
-				"buffer_size": 3057,
+				"buffer_size": 354,
+				"line_ending": "Unix",
+				"name": "'use strict';"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 3055,
 				"line_ending": "Unix"
 			}
 		},
@@ -300,18 +310,10 @@
 			}
 		},
 		{
-			"file": "public/css/main.css",
-			"settings":
-			{
-				"buffer_size": 101273,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/sass/_header.sass",
 			"settings":
 			{
-				"buffer_size": 507,
+				"buffer_size": 2076,
 				"line_ending": "Unix",
 				"name": ".wr"
 			}
@@ -320,7 +322,7 @@
 			"file": "src/sass/_vars.sass",
 			"settings":
 			{
-				"buffer_size": 17,
+				"buffer_size": 131,
 				"line_ending": "Unix",
 				"name": "$light-blue: #4cd"
 			}
@@ -329,7 +331,7 @@
 			"file": "src/sass/_main-section.sass",
 			"settings":
 			{
-				"buffer_size": 665,
+				"buffer_size": 1554,
 				"line_ending": "Unix",
 				"name": ".main"
 			}
@@ -338,7 +340,7 @@
 			"file": "src/sass/_general.sass",
 			"settings":
 			{
-				"buffer_size": 209,
+				"buffer_size": 354,
 				"line_ending": "Unix"
 			}
 		}
@@ -386,11 +388,12 @@
 	[
 		"/home/nikita/dev/test.dev/ya-task-1",
 		"/home/nikita/dev/test.dev/ya-task-1/public",
-		"/home/nikita/dev/test.dev/ya-task-1/public/css",
-		"/home/nikita/dev/test.dev/ya-task-1/src"
+		"/home/nikita/dev/test.dev/ya-task-1/src",
+		"/home/nikita/dev/test.dev/ya-task-1/src/sass"
 	],
 	"file_history":
 	[
+		"/home/nikita/dev/test.dev/ya-task-1/public/css/main.css",
 		"/home/nikita/dev/test.dev/ya-task-1/.gitignore",
 		"/home/nikita/dev/test.dev/ya-task-1/index.html",
 		"/home/nikita/dev/prod.dev/c-nik/app/sass/_head-section.sass",
@@ -468,6 +471,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"before",
 			"ima",
 			"summary",
 			"section",
@@ -538,7 +542,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -547,15 +551,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3483,
+						"buffer_size": 3703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								283,
-								283
+								3556,
+								3556
 							]
 						],
 						"settings":
@@ -565,7 +569,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2736.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -573,19 +577,48 @@
 				},
 				{
 					"buffer": 1,
-					"file": "gulpfile.js",
+					"file": "src/js/main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3057,
+						"buffer_size": 354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2922,
-								2922
+								232,
+								232
+							]
+						],
+						"settings":
+						{
+							"auto_name": "'use strict';",
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3055,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2770,
+								2770
 							]
 						],
 						"settings":
@@ -595,14 +628,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2217.0,
+						"translation.y": 659.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src/sass/main.sass",
 					"semi_transient": false,
 					"settings":
@@ -628,42 +661,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/css/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 101273,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1958,
-								1958
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3115.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -672,15 +676,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 507,
+						"buffer_size": 2076,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								52,
-								52
+								1138,
+								1138
 							]
 						],
 						"settings":
@@ -691,10 +695,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 627.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -703,15 +707,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17,
+						"buffer_size": 131,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15,
-								15
+								109,
+								109
 							]
 						],
 						"settings":
@@ -724,7 +728,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -733,15 +737,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 665,
+						"buffer_size": 1554,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								183,
-								183
+								491,
+								491
 							]
 						],
 						"settings":
@@ -752,10 +756,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 171.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -764,27 +768,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 209,
+						"buffer_size": 354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27,
-								27
+								330,
+								330
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/Sass.tmLanguage"
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -874,7 +879,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
