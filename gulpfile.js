@@ -75,9 +75,11 @@ gulp.task('sass', ()=>{
 gulp.task('js', ()=>{
 	return gulp.src('src/js/*.js')
 	.pipe(newer('public/js/'))
+	.pipe(debug())
 	.pipe(maps.init())
+	.pipe(rigger())
+	.pipe(concat('complete.js'))
 	.pipe(uglify())
-	.pipe(concat('script.js'))
 	.pipe(maps.write())
 	.pipe(gulp.dest('public/js'))
 })

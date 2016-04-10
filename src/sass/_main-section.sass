@@ -3,20 +3,55 @@
 	@media screen and (max-width: 700px)
 		padding: 1em
 		// text-align: center
+	.day
+		.day__header
+			padding: 0.5em
+			font-weight: bolder
+			font-size: 2em
+		&.earlier
+			.day__header
+				color: lighten($black, 40%)
+		&.today
+			.day__header
+				color: darken($orange, 0%)
 
 .channel
-	margin: 1em
+	box-sizing: border-box
+	// margin: 0
+	font-size: 1.3em
+	line-height: 1.4em
+	// min-width: 50%
 	max-width: 100%
-	will-change: width, padding, margin, display, border, box-shadow
+	will-change: box-shadow, font-size
 	transition: all 0.2s ease
+	overflow: visible
+	position: relative
+
+	// display: inline-block
+	// float: left
+	// padding: 1em
+	border: 0.1em solid transparent
 
 	@media screen and (max-width: 500px)
 		margin: 1em 0
 		width: 100%
+		font-size: 1em
+
+	.back-btn
+		padding: 0.5em 0.75em
+		width: auto
+		font-size: 0.9em
+		color: darken($light-blue, 30%)
+		will-change: width
+		transition: color 0.2s ease-in-out
+		&:hover
+			cursor: pointer
+			color: $orange
 
 	.channel-title
 		margin: 0
 		position: relative
+		line-height: 1.3em
 		padding: 0 3.2em 0.3em 0
 		border-bottom: 0.1em solid #dfdfdf
 		&::after
@@ -32,12 +67,16 @@
 			background-repeat: no-repeat
 			background-size: contain
 			background-position: center right
+
 	.channel-program
 		// margin-bottom: 0
 		padding: 0
 		li
+			// position: relative
 			list-style: none
 			padding: 0.3em 0
+			overflow: visible
+			color: #aaa
 			.time, .title
 				display: inline-block
 				box-sizing: border-box
@@ -50,6 +89,36 @@
 				padding: 0 0.8em 0 0
 			.title
 				width: calc(100% - 3.8em)
+			.content-pr
+				display: none
+				opacity: 0
+				position: absolute
+				z-index: 999
+				top: -0.1em
+				left: 22.2em
+				min-height: 30em
+				width: 20em
+				padding: 1em
+				// border: 0.1em solid $black
+				background: $black
+				box-shadow: 0 0.4em 2em 0 rgba(0,0,0,.8)
+				color: #fafafa
+				animation: prog-preview-switch 0.1s ease-in-out 0.8s forwards
+
+			&.now~li
+				color: inherit
+
+			&.now
+				color: inherit
+				font-weight: bolder
+
+			&:hover, &.now~li:hover
+				color: $orange
+				cursor: pointer
+				.content-pr
+					display: block
+					background: transparentize($black, 0.05)
+					// animation: prog-preview-switch 0.2s ease-out 0.8s forwards
 
 	&.tv1 .channel-title::after
 		background-image: url('../img/1tv.svg')
@@ -77,12 +146,35 @@
 	&.channel--little
 		display: inline-block
 		vertical-align: top
+		margin: 1em
 		padding: 1em 1em 0.7em
 		border: 0.1em solid #dedede
 		width: 20em
+		min-width: auto
+		font-size: 1em
+		line-height: 1em
+		// float: left
 		
+		.back-btn
+			// transform: translateX(-100%)
+			// left: -100%
+			// position: absolute
+			display: none
+			// width: 0
+			// visibility: hidden
+
 		.load-more-btn
 			display: block
 
+		.channel-program
+			li:nth-child(n+6)
+				display: none
+
 		&:hover
 			box-shadow: 0 0.45em 2em rgba(0,0,0,.2)
+
+		@media screen and (max-width: 500px)
+			margin: 1em 0
+
+		&.hide
+			display: none !important

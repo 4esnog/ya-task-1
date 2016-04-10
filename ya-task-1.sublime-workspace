@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"font-s",
+				"font-size: "
+			],
+			[
+				"font",
+				"font-weight: "
+			],
+			[
+				"box",
+				"box-shadow: "
+			],
+			[
+				"over",
+				"overflow-x: "
+			],
+			[
+				"border",
+				"border-box"
+			],
+			[
+				"min",
+				"min-width: "
+			],
+			[
+				"box-",
+				"box-shadow"
+			],
+			[
 				"bor",
 				"border-left: "
 			],
@@ -32,14 +60,6 @@
 				"block"
 			],
 			[
-				"box",
-				"box-shadow: "
-			],
-			[
-				"border",
-				"border-radius: "
-			],
-			[
 				"a",
 				"align-content: "
 			],
@@ -52,14 +72,6 @@
 				"inline-block"
 			],
 			[
-				"box-",
-				"box-sizing: "
-			],
-			[
-				"font",
-				"font-size: "
-			],
-			[
 				"max-",
 				"max-width: "
 			],
@@ -70,10 +82,6 @@
 			[
 				"flex",
 				"flex-basis"
-			],
-			[
-				"over",
-				"overflow-y"
 			],
 			[
 				"pad",
@@ -154,10 +162,6 @@
 			[
 				"border-co",
 				"border-color"
-			],
-			[
-				"min",
-				"min-width"
 			],
 			[
 				"co",
@@ -279,15 +283,18 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 3703,
+				"buffer_size": 47117,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "'use strict';\n\n//= ../../bower_components/jquery/dist/jquery.min.js\n\n$(document).ready(function(){\n\n	var currChannelId;\n\n	// Переключение навигации (по дате) на мобильных\n	\n	$('.active').click(function(e){\n		if ($('body').offset.width >= 700) {\n			$('.date-nav').removeClass('opened');\n			return;\n		}\n\n		if ($('.date-nav').hasClass('opened')) {\n			$('.date-nav').removeClass('opened');\n		} else {\n			$('.date-nav').addClass('opened');\n		}\n\n		e.preventDefault();\n\n	});\n\n	// Раскрытие полной программы выбранного канала\n\n	$('.load-more-btn').click(function(e){\n		currChannelId = $(this).attr('id').slice(0, -10);\n		// if ($(currChannelId).hasClass('.channel--little'))\n		// console.log('#'+currChannelId);\n		$('.channel').addClass('channel--little hide');\n		$('#'+currChannelId).removeClass('channel--little');\n	});\n\n	// Скрытие её же\n\n	$('.back-btn').click(function(e){\n		$('.channel').removeClass('hide');\n		$('#'+currChannelId).addClass('channel--little');\n	});\n\n	// Прокрутка при навигации\n\n	(function(){\n		var positionIDs = [];\n		$('.main .day').each(function(i){\n			positionIDs[i] = $(this).attr('id');\n			console.log(positionIDs[i]);\n		});\n\n		$('.date-nav a').click(function(){\n			var id = $(this).attr('id');\n			var place = $('.main #'.concat(id)).scrollTop ? $('.main #'.concat(id)) : false;\n			if (place != false) {\n				\n			}\n		});\n	})();\n\n\n\n});",
 			"file": "src/js/main.js",
+			"file_size": 1266,
+			"file_write_time": 131047964103566371,
 			"settings":
 			{
-				"buffer_size": 354,
+				"buffer_size": 1353,
 				"line_ending": "Unix",
 				"name": "'use strict';"
 			}
@@ -296,7 +303,7 @@
 			"file": "gulpfile.js",
 			"settings":
 			{
-				"buffer_size": 3055,
+				"buffer_size": 3093,
 				"line_ending": "Unix"
 			}
 		},
@@ -304,7 +311,7 @@
 			"file": "src/sass/main.sass",
 			"settings":
 			{
-				"buffer_size": 206,
+				"buffer_size": 227,
 				"line_ending": "Unix",
 				"name": "@import '../../bower_components/font-awesome/css/f"
 			}
@@ -313,7 +320,7 @@
 			"file": "src/sass/_header.sass",
 			"settings":
 			{
-				"buffer_size": 2076,
+				"buffer_size": 2103,
 				"line_ending": "Unix",
 				"name": ".wr"
 			}
@@ -331,16 +338,25 @@
 			"file": "src/sass/_main-section.sass",
 			"settings":
 			{
-				"buffer_size": 1554,
+				"buffer_size": 3536,
 				"line_ending": "Unix",
 				"name": ".main"
+			}
+		},
+		{
+			"file": "src/sass/_animations.sass",
+			"settings":
+			{
+				"buffer_size": 112,
+				"line_ending": "Unix",
+				"name": "@keyframes programme-preview-switch"
 			}
 		},
 		{
 			"file": "src/sass/_general.sass",
 			"settings":
 			{
-				"buffer_size": 354,
+				"buffer_size": 393,
 				"line_ending": "Unix"
 			}
 		}
@@ -471,6 +487,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"today",
+			"03",
+			"strong",
+			"id",
+			"i",
+			"id",
+			"channelId",
 			"before",
 			"ima",
 			"summary",
@@ -542,7 +565,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -551,15 +574,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3703,
+						"buffer_size": 47117,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3556,
-								3556
+								727,
+								727
 							]
 						],
 						"settings":
@@ -569,10 +592,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2736.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -581,27 +604,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 354,
+						"buffer_size": 1353,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								232,
-								232
+								1328,
+								1328
 							]
 						],
 						"settings":
 						{
 							"auto_name": "'use strict';",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 605.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -610,15 +635,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3055,
+						"buffer_size": 3093,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2770,
-								2770
+								2883,
+								2688
 							]
 						],
 						"settings":
@@ -628,10 +653,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 659.0,
+						"translation.y": 1672.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -640,15 +665,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 206,
+						"buffer_size": 227,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								206,
-								206
+								167,
+								167
 							]
 						],
 						"settings":
@@ -661,13 +686,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -676,15 +701,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2076,
+						"buffer_size": 2103,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1138,
-								1138
+								146,
+								146
 							]
 						],
 						"settings":
@@ -695,10 +720,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 627.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -714,8 +739,8 @@
 						"selection":
 						[
 							[
-								109,
-								109
+								111,
+								111
 							]
 						],
 						"settings":
@@ -728,7 +753,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -737,15 +762,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1554,
+						"buffer_size": 3536,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								491,
-								491
+								290,
+								290
 							]
 						],
 						"settings":
@@ -756,27 +781,57 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 171.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "src/sass/_general.sass",
+					"file": "src/sass/_animations.sass",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 354,
+						"buffer_size": 112,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								330,
-								330
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"auto_name": "@keyframes programme-preview-switch",
+							"color_scheme": "Packages/User/Color Highlighter/themes/peel.tmTheme",
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/sass/_general.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
 							]
 						],
 						"settings":
@@ -789,7 +844,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -865,7 +920,7 @@
 		[
 			[
 				"",
-				"~/dev/prod.dev/specstroy/specstroy.sublime-project"
+				"/var/www/html/iivt.dev/wp-content/themes/iivt/iivt.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -879,7 +934,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

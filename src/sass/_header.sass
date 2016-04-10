@@ -1,4 +1,5 @@
 .head
+	// box-sizing: border-box
 	position: fixed
 	top: 0
 	left: 0
@@ -46,6 +47,7 @@
 					border: none
 					border-bottom: 0.1em solid
 					padding: 0 2em
+					display: block
 					&.active
 						background: lighten($black, 25%)
 						color: #eee
@@ -62,16 +64,17 @@
 							transform: rotate(-45deg)
 							right: 0.55em
 					&:nth-child(n+2)
-						display: block
+						
 						border-color: transparentize($black, 0.8)
 			
 			// pointer-events: none
 			a
-				display: block
+				display: none
 				margin: 0
 				background: #fff
 				&.active
 					padding-right: 1.6em
+					display: block
 					// pointer-events: none
 					&::after, &::before
 						display: block
@@ -90,7 +93,7 @@
 					// visibility: hidden
 					// opacity: 0
 					// pointer-events: none
-					display: none
+					// display: none
 			&:focus, &:active
 				a:nth-child(n+2)
 					// visibility: visible
