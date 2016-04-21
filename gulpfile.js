@@ -27,9 +27,9 @@ gulp.task('fonts', ()=>{
 
 gulp.task('libs', ()=>{
 	return gulp.src('bower_components/**/*')
-	.pipe(newer('src/libs/'))
+	// .pipe(newer('src/libs/'))
 	.pipe(gulp.dest('src/libs/'))
-	// .pipe(gulp.dest('public/libs/'))
+	.pipe(gulp.dest('public/libs/'))
 })
 
 gulp.task('images', ()=>{
@@ -74,7 +74,7 @@ gulp.task('sass', ()=>{
 
 gulp.task('js', ()=>{
 	return gulp.src('src/js/*.js')
-	.pipe(newer('public/js/'))
+	// .pipe(newer('public/js/'))
 	.pipe(debug())
 	.pipe(maps.init())
 	.pipe(rigger())

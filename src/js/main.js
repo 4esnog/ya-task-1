@@ -28,8 +28,6 @@ $(document).ready(function(){
 
 	$('.load-more-btn').click(function(e){
 		currChannelId = $(this).attr('id').slice(0, -10);
-		// if ($(currChannelId).hasClass('.channel--little'))
-		// console.log('#'+currChannelId);
 		$('.channel').addClass('channel--little hide');
 		$('#'+currChannelId).removeClass('channel--little');
 	});
@@ -51,7 +49,6 @@ $(document).ready(function(){
 
 			var id = $(this).attr('href');
 			var place = $('.main ' + id).offset().top;
-			// console.log(place);
 			var margin = $('.main ' + id + ' .day__header').outerHeight(true);
 			var headerHeight = $('.head').height();
 			if (place != false) {
@@ -72,7 +69,6 @@ $(document).ready(function(){
 		$('.main .day').each(function(i){
 			var id = $(this).attr('id');
 			positions[id] = $(this).offset().top;
-			// console.log(id + ': ' + positions[id]);
 		});
 
 		$(document).scroll(function(){
@@ -81,8 +77,6 @@ $(document).ready(function(){
 
 				var maxTop = $(document).scrollTop() >= ($(this).offset().top - $('.head').height() - 50);
 				var maxBot = $(document).scrollTop() < ($(this).offset().top + $(this).outerHeight(true) - $('.head').height() - 50);
-
-				// console.log($(this).attr('id') + ': ' + maxTop + ' && ' + maxBot + ' = ' + (maxTop && maxBot));
 				
 				if (maxTop && maxBot) {
 					$('.date-nav a').removeClass('active');
