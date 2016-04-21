@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 			var id = $(this).attr('href');
 			var place = $('.main ' + id).offset().top;
-			console.log(place);
+			// console.log(place);
 			var margin = $('.main ' + id + ' .day__header').outerHeight(true);
 			var headerHeight = $('.head').height();
 			if (place != false) {
@@ -72,7 +72,7 @@ $(document).ready(function(){
 		$('.main .day').each(function(i){
 			var id = $(this).attr('id');
 			positions[id] = $(this).offset().top;
-			console.log(id + ': ' + positions[id]);
+			// console.log(id + ': ' + positions[id]);
 		});
 
 		$(document).scroll(function(){
@@ -82,18 +82,13 @@ $(document).ready(function(){
 				var maxTop = $(document).scrollTop() >= ($(this).offset().top - $('.head').height() - 50);
 				var maxBot = $(document).scrollTop() < ($(this).offset().top + $(this).outerHeight(true) - $('.head').height() - 50);
 
-				console.log($(this).attr('id') + ': ' + maxTop + ' && ' + maxBot + ' = ' + (maxTop && maxBot));
-				// console.log($(this).offset().top + $('.head').height() + 50);
+				// console.log($(this).attr('id') + ': ' + maxTop + ' && ' + maxBot + ' = ' + (maxTop && maxBot));
 				
 				if (maxTop && maxBot) {
 					$('.date-nav a').removeClass('active');
 					$('.date-nav a[href="#'+$(this).attr('id')+'"]').addClass('active');
 				}
 			});
-			// console.log($(this).scrollTop());
-			
-
-			// if ()
 		});
 
 	})();
